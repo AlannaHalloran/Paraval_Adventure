@@ -1,0 +1,123 @@
+import time
+
+# --- Story Sections as Strings ---
+intro = """It is a damp spring evening. Escaping the unamiable weather, you enter the Clogging Fox, 
+a small but cozy tavern with an inviting smell of roast beef and ale, and a warm glow from a large hearth."""
+
+chair_scene = """By the fire you settle into an old, deep-seated chair; its cushion so worn from years of wear 
+that little color remains in the fabric."""
+
+feast_scene = """You begin to eat the food and drink in front of you. Ale, as rich and sweet as it is foamy, 
+spills over the top of your tankard, and a steaming bowl of roast meats and mushrooms makes your stomach growl in anticipation."""
+
+fawn_intro = """But before you eat as much as your enraged stomach demands, you are interrupted by the soft, thrumming voice of a fawn. 
+He is old, to say the least, with white hair and fur that most certainly was once strikingly black."""
+
+fawn_look = """The fawn pushes a pair of taped spectacles up his low nose, giving you a long, piercing look. 
+It seems, as though, the fawn learns everything about you from a single glance."""
+
+fawn_speaks = 'After a seemingly uncomfortable pause, the old fawn speaks.\n"Welcome, stranger, to Paraval."\n'
+
+gold = 3
+
+# --- Print Story with Time Delays ---
+print(intro)
+time.sleep(3)
+
+print("\n\n" + chair_scene)
+time.sleep(2)
+
+print(feast_scene)
+time.sleep(2)
+
+print("\n\n" + fawn_intro)
+time.sleep(2)
+
+print(fawn_look)
+time.sleep(3)
+
+print("\n\n\n\n\n\n")
+print(fawn_speaks)
+time.sleep(2)
+
+# --- Role Selection ---
+while True:
+    print("Do you come as a traveler or mercenary?")
+    user_role = input("Select (a) traveler or (b) mercenary (or a being more magical, if you dare): ").strip().lower()
+
+    if user_role == "a":
+        print("Welcome, fair traveler. I hope that Paraval holds that which you seek.")
+        user_role = "traveler"
+        break
+    elif user_role == "b":
+        print("A mercenary, a trader in blood... I must warn you that your time in Paraval will not be easy... Tread lightly...")
+        user_role = "mercenary"
+        break
+    elif user_role == "fairy":
+        print("Ah... we have not seen the likes of you for many years now. Be welcomed in Paraval.")
+        break
+    else:
+        print("Please type 'a', 'b', or the other.")
+
+time.sleep(2)
+
+# --- Farewell Based on Role ---
+print("\n\nWell, it looks like you're ready to head on, so I won't keep you.")
+time.sleep(2)
+
+if user_role == "traveler":
+    print("Farewell, traveler, and may the road rise to meet you.")
+elif user_role == "mercenary":
+    print("Tread carefully, you who deal in blood, that blood may not be dealt to you.")
+elif user_role == "fairy":
+    print("I never thought I would live to see the day when the fairies return to Paraval! An honor, it is, to meet you.")
+
+print("\n\n\n\n\n")
+time.sleep(3)
+
+# --- Conversation Choices ---
+print("You finish your food in silence, avoiding the gaze of the old fawn. But he never stops looking at you. At last, you speak...")
+time.sleep(2)
+
+while True:
+    user_choice = input("(a) What do they call you? (b) What is Paraval? (c) Why are you staring at me? ").strip().lower()
+
+    if user_choice == "a":
+        print(f"I have been called many things, but you, {user_role}, may call me Fed.")
+        break
+    elif user_choice == "b":
+        print("Paraval, in the forgotten language, means 'Land of Desires'. Many still come to these parts to seek what they most desire.")
+        break
+    elif user_choice == "c":
+        print("'...I apologize,' he says, before leaning back in his chair and proceeding to continue staring at you.")
+        break
+    else:
+        print("Please type 'a', 'b', or 'c'.")
+
+time.sleep(3)
+
+# --- Final Scene ---
+print("\nAfter your strange meeting with the fawn, you rise and, taking your few belongings, head to the barkeep where you rent a small, dismal room for the night.")
+time.sleep(3)
+
+print("Within the rotting oak walls, across your wooden bed, you count your meager belongings...\n")
+time.sleep(2)
+
+# Inventory Fix
+items = [
+    f"gold coins, amounting to {gold}",
+    "scraps of meat and vegetables, enough for one small meal",
+    "a water skin",
+    "rope",
+    "carrot seeds",
+    "a knife",
+    "a sling shot",
+    "a book of Paravalan fables"
+]
+
+print("Your belongings:")
+for item in items:
+    print("- " + item)
+
+# End
+print("\nTo be continued...\n")
